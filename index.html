@@ -269,16 +269,34 @@
   </footer>
 
   <script>
-    function joinWaitlist() {
-      const email = document.getElementById('email').value || document.getElementById('email2').value;
+    const API_URL = 'https://sifo-waitlist.loca.lt';
+
+    async function joinWaitlist() {
+      const emailInput = document.getElementById('email');
+      const emailInput2 = document.getElementById('email2');
+      const email = (emailInput && emailInput.value) || (emailInput2 && emailInput2.value);
+
       if (!email || !email.includes('@')) {
         alert('Please enter a valid email');
         return;
       }
-      // TODO: POST to backend
-      document.querySelector('.proof').innerHTML = '<strong>🎉 You\'re on the list!</strong> We\'ll be in touch.';
-      document.getElementById('email').value = '';
-      document.getElementById('email2').value = '';
+
+      try {
+        const res = await fetch(API_URL + '/waitlist', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+        const data = await res.json();
+
+        document.querySelectorAll('.proof').forEach(el => {
+          el.innerHTML = '<strong>' + (data.message || '🎉 You\'re on the list!') + '</strong> (' + data.count + ' signups)';
+        });
+        if (emailInput) emailInput.value = '';
+        if (emailInput2) emailInput2.value = '';
+      } catch (e) {
+        alert('Something went wrong. Try again.');
+      }
     }
   </script>
 </body>
