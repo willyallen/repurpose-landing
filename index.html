@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RepurposeAI — One Piece of Content, Every Platform</title>
+  <meta name="description" content="Turn one piece of content into LinkedIn posts, Twitter threads, blog summaries, and email newsletters. AI-powered content repurposing for solo founders.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #0a0a0a;
+      --surface: #141414;
+      --border: #222;
+      --text: #e4e4e4;
+      --text-dim: #888;
+      --accent: #6366f1;
+      --accent-light: #818cf8;
+      --green: #22c55e;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+
+    /* Header */
+    header { padding: 24px 0; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 20px; font-weight: 700; color: var(--accent-light); }
+
+    /* Hero */
+    .hero { padding: 80px 0 60px; text-align: center; }
+    .hero h1 { font-size: 48px; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+    .hero h1 span { color: var(--accent-light); }
+    .hero p { font-size: 20px; color: var(--text-dim); max-width: 600px; margin: 0 auto 40px; }
+
+    /* Waitlist */
+    .waitlist { display: flex; gap: 12px; max-width: 480px; margin: 0 auto; }
+    .waitlist input {
+      flex: 1; padding: 14px 18px; border-radius: 8px; border: 1px solid var(--border);
+      background: var(--surface); color: var(--text); font-size: 16px; outline: none;
+    }
+    .waitlist input:focus { border-color: var(--accent); }
+    .waitlist button {
+      padding: 14px 28px; border-radius: 8px; border: none;
+      background: var(--accent); color: white; font-size: 16px; font-weight: 600;
+      cursor: pointer; white-space: nowrap; transition: background 0.2s;
+    }
+    .waitlist button:hover { background: var(--accent-light); }
+
+    /* Social proof */
+    .proof { margin-top: 16px; color: var(--text-dim); font-size: 14px; }
+    .proof strong { color: var(--green); }
+
+    /* Flow */
+    .flow { padding: 60px 0; }
+    .flow h2 { font-size: 32px; font-weight: 700; margin-bottom: 40px; text-align: center; }
+    .flow-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .step {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+      padding: 24px; text-align: center;
+    }
+    .step-num { font-size: 40px; margin-bottom: 12px; }
+    .step h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+    .step p { color: var(--text-dim); font-size: 14px; }
+
+    /* Outputs */
+    .outputs { padding: 60px 0; }
+    .outputs h2 { font-size: 32px; font-weight: 700; margin-bottom: 40px; text-align: center; }
+    .output-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .output-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+      padding: 20px; display: flex; align-items: center; gap: 16px;
+    }
+    .output-icon { font-size: 28px; }
+    .output-card h3 { font-size: 16px; font-weight: 600; }
+    .output-card p { color: var(--text-dim); font-size: 13px; }
+
+    /* Pricing */
+    .pricing { padding: 60px 0; }
+    .pricing h2 { font-size: 32px; font-weight: 700; margin-bottom: 40px; text-align: center; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .price-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+      padding: 28px; text-align: center;
+    }
+    .price-card.featured { border-color: var(--accent); }
+    .price-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+    .price { font-size: 36px; font-weight: 800; margin: 12px 0; }
+    .price span { font-size: 16px; color: var(--text-dim); font-weight: 400; }
+    .price-card ul { list-style: none; margin: 16px 0; text-align: left; }
+    .price-card li { padding: 6px 0; color: var(--text-dim); font-size: 14px; }
+    .price-card li::before { content: "✓ "; color: var(--green); }
+
+    /* CTA */
+    .cta { padding: 60px 0 80px; text-align: center; }
+    .cta h2 { font-size: 32px; font-weight: 700; margin-bottom: 16px; }
+    .cta p { color: var(--text-dim); margin-bottom: 32px; }
+
+    /* Footer */
+    footer { padding: 24px 0; border-top: 1px solid var(--border); text-align: center; }
+    footer p { color: var(--text-dim); font-size: 13px; }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 32px; }
+      .flow-steps, .output-grid, .pricing-grid { grid-template-columns: 1fr; }
+      .waitlist { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">⚡ RepurposeAI</div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>One piece of content.<br><span>Every platform.</span></h1>
+      <p>Write once. RepurposeAI transforms it into platform-perfect posts for LinkedIn, Twitter, email newsletters, and blog summaries. Built for solo founders who don't have time.</p>
+      <div class="waitlist">
+        <input type="email" placeholder="your@email.com" id="email">
+        <button onclick="joinWaitlist()">Join Waitlist</button>
+      </div>
+      <div class="proof">Join <strong>47 founders</strong> on the waitlist</div>
+    </div>
+  </section>
+
+  <section class="flow">
+    <div class="container">
+      <h2>How it works</h2>
+      <div class="flow-steps">
+        <div class="step">
+          <div class="step-num">1️⃣</div>
+          <h3>Paste your content</h3>
+          <p>Blog post, newsletter, podcast transcript, video script — anything long-form.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2️⃣</div>
+          <h3>AI transforms it</h3>
+          <p>Our AI rewrites for each platform's style, tone, and character limits.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3️⃣</div>
+          <h3>Copy & publish</h3>
+          <p>Platform-ready posts. Copy-paste or schedule directly. Done in seconds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="outputs">
+    <div class="container">
+      <h2>What you get from one piece of content</h2>
+      <div class="output-grid">
+        <div class="output-card">
+          <div class="output-icon">💼</div>
+          <div>
+            <h3>LinkedIn Post</h3>
+            <p>Professional, engaging, with hooks that drive comments</p>
+          </div>
+        </div>
+        <div class="output-card">
+          <div class="output-icon">🐦</div>
+          <div>
+            <h3>Twitter Thread</h3>
+            <p>Breaking your content into bite-sized, retweetable insights</p>
+          </div>
+        </div>
+        <div class="output-card">
+          <div class="output-icon">📧</div>
+          <div>
+            <h3>Email Newsletter</h3>
+            <p>Conversational summary with a clear CTA for your list</p>
+          </div>
+        </div>
+        <div class="output-card">
+          <div class="output-icon">📝</div>
+          <div>
+            <h3>Blog Summary</h3>
+            <p>Condensed version with key takeaways for your site</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing">
+    <div class="container">
+      <h2>Simple pricing</h2>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Starter</h3>
+          <div class="price">£19<span>/mo</span></div>
+          <ul>
+            <li>50 content pieces/month</li>
+            <li>4 platform outputs each</li>
+            <li>Basic templates</li>
+            <li>Email support</li>
+          </ul>
+        </div>
+        <div class="price-card featured">
+          <h3>Pro</h3>
+          <div class="price">£39<span>/mo</span></div>
+          <ul>
+            <li>200 content pieces/month</li>
+            <li>Custom tone & voice</li>
+            <li>Brand guidelines</li>
+            <li>Priority support</li>
+          </ul>
+        </div>
+        <div class="price-card">
+          <h3>Team</h3>
+          <div class="price">£79<span>/mo</span></div>
+          <ul>
+            <li>Unlimited content</li>
+            <li>3 team members</li>
+            <li>API access</li>
+            <li>Dedicated support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Stop creating content the hard way</h2>
+      <p>Join the waitlist. Be first to repurpose smarter.</p>
+      <div class="waitlist">
+        <input type="email" placeholder="your@email.com" id="email2">
+        <button onclick="joinWaitlist()">Join Waitlist</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 RepurposeAI · Built by the Science Division 🔬</p>
+    </div>
+  </footer>
+
+  <script>
+    function joinWaitlist() {
+      const email = document.getElementById('email').value || document.getElementById('email2').value;
+      if (!email || !email.includes('@')) {
+        alert('Please enter a valid email');
+        return;
+      }
+      // TODO: POST to backend
+      document.querySelector('.proof').innerHTML = '<strong>🎉 You\'re on the list!</strong> We\'ll be in touch.';
+      document.getElementById('email').value = '';
+      document.getElementById('email2').value = '';
+    }
+  </script>
+</body>
+</html>
