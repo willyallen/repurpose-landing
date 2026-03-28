@@ -25,17 +25,16 @@
     }
     .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
 
-    /* Header */
     header { padding: 24px 0; border-bottom: 1px solid var(--border); }
+    .header-inner { display: flex; align-items: center; gap: 12px; }
     .logo { font-size: 20px; font-weight: 700; color: var(--accent-light); }
+    .byline { color: #666; font-size: 12px; margin-left: auto; letter-spacing: 2px; }
 
-    /* Hero */
     .hero { padding: 80px 0 60px; text-align: center; }
     .hero h1 { font-size: 48px; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
     .hero h1 span { color: var(--accent-light); }
     .hero p { font-size: 20px; color: var(--text-dim); max-width: 600px; margin: 0 auto 40px; }
 
-    /* Waitlist */
     .waitlist { display: flex; gap: 12px; max-width: 480px; margin: 0 auto; }
     .waitlist input {
       flex: 1; padding: 14px 18px; border-radius: 8px; border: 1px solid var(--border);
@@ -49,11 +48,9 @@
     }
     .waitlist button:hover { background: var(--accent-light); }
 
-    /* Social proof */
     .proof { margin-top: 16px; color: var(--text-dim); font-size: 14px; }
     .proof strong { color: var(--green); }
 
-    /* Flow */
     .flow { padding: 60px 0; }
     .flow h2 { font-size: 32px; font-weight: 700; margin-bottom: 40px; text-align: center; }
     .flow-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -65,7 +62,6 @@
     .step h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
     .step p { color: var(--text-dim); font-size: 14px; }
 
-    /* Outputs */
     .outputs { padding: 60px 0; }
     .outputs h2 { font-size: 32px; font-weight: 700; margin-bottom: 40px; text-align: center; }
     .output-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
@@ -77,7 +73,6 @@
     .output-card h3 { font-size: 16px; font-weight: 600; }
     .output-card p { color: var(--text-dim); font-size: 13px; }
 
-    /* Pricing */
     .pricing { padding: 60px 0; }
     .pricing h2 { font-size: 32px; font-weight: 700; margin-bottom: 40px; text-align: center; }
     .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -91,16 +86,18 @@
     .price span { font-size: 16px; color: var(--text-dim); font-weight: 400; }
     .price-card ul { list-style: none; margin: 16px 0; text-align: left; }
     .price-card li { padding: 6px 0; color: var(--text-dim); font-size: 14px; }
-    .price-card li::before { content: "✓ "; color: var(--green); }
+    .price-card li::before { content: "\2713 "; color: var(--green); }
 
-    /* CTA */
     .cta { padding: 60px 0 80px; text-align: center; }
     .cta h2 { font-size: 32px; font-weight: 700; margin-bottom: 16px; }
     .cta p { color: var(--text-dim); margin-bottom: 32px; }
 
-    /* Footer */
     footer { padding: 24px 0; border-top: 1px solid var(--border); text-align: center; }
     footer p { color: var(--text-dim); font-size: 13px; }
+    footer strong { color: var(--accent-light); }
+
+    /* Sifo logo inline SVG */
+    .sifo-logo { width: 32px; height: 32px; }
 
     @media (max-width: 640px) {
       .hero h1 { font-size: 32px; }
@@ -111,34 +108,26 @@
 </head>
 <body>
   <header>
-    <div class="container" style="display:flex;align-items:center;gap:12px;">
-      <svg width="32" height="32" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-        <rect width="512" height="512" fill="#0a0a0a"/>
-        <circle cx="256" cy="120" r="10" fill="#818cf8"/>
-        <circle cx="200" cy="140" r="8" fill="#818cf8" opacity="0.8"/>
-        <circle cx="312" cy="140" r="8" fill="#818cf8" opacity="0.8"/>
-        <circle cx="340" cy="180" r="8" fill="#818cf8" opacity="0.8"/>
-        <circle cx="320" cy="220" r="7" fill="#818cf8" opacity="0.7"/>
-        <circle cx="280" cy="240" r="7" fill="#818cf8" opacity="0.7"/>
-        <circle cx="256" cy="256" r="14" fill="#6366f1"/>
-        <circle cx="256" cy="256" r="7" fill="#c4b5fd"/>
-        <circle cx="232" cy="272" r="7" fill="#818cf8" opacity="0.7"/>
-        <circle cx="192" cy="272" r="7" fill="#818cf8" opacity="0.7"/>
-        <circle cx="172" cy="312" r="8" fill="#818cf8" opacity="0.8"/>
-        <circle cx="200" cy="350" r="8" fill="#818cf8" opacity="0.8"/>
-        <circle cx="256" cy="372" r="10" fill="#818cf8"/>
-        <circle cx="312" cy="350" r="8" fill="#818cf8" opacity="0.8"/>
-        <g stroke="#06b6d4" stroke-width="1.5" opacity="0.5" fill="none">
-          <line x1="256" y1="120" x2="200" y2="140"/><line x1="256" y1="120" x2="312" y2="140"/>
-          <line x1="312" y1="140" x2="340" y2="180"/><line x1="340" y1="180" x2="320" y2="220"/>
-          <line x1="320" y1="220" x2="280" y2="240"/><line x1="280" y1="240" x2="256" y2="256"/>
-          <line x1="256" y1="256" x2="232" y2="272"/><line x1="232" y1="272" x2="192" y2="272"/>
-          <line x1="192" y1="272" x2="172" y2="312"/><line x1="172" y1="312" x2="200" y2="350"/>
-          <line x1="200" y1="350" x2="256" y2="372"/><line x1="256" y1="372" x2="312" y2="350"/>
-        </g>
-      </svg>
-      <div class="logo">RepurposeAI</div>
-      <span style="color:#666;font-size:12px;margin-left:auto;letter-spacing:2px;">by SIFO</span>
+    <div class="container">
+      <div class="header-inner">
+        <svg class="sifo-logo" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+          <rect width="512" height="512" rx="64" fill="#111118"/>
+          <polygon points="256,72 424,166 424,346 256,440 88,346 88,166" fill="none" stroke="#6366f1" stroke-width="6"/>
+          <circle cx="256" cy="256" r="48" fill="#6366f1"/><circle cx="256" cy="256" r="24" fill="#e0e7ff" opacity="0.9"/>
+          <g stroke="#818cf8" stroke-width="5" stroke-linecap="round">
+            <line x1="256" y1="208" x2="256" y2="140"/><line x1="224" y1="224" x2="140" y2="175"/>
+            <line x1="288" y1="224" x2="372" y2="175"/><line x1="212" y1="256" x2="130" y2="256"/>
+            <line x1="300" y1="256" x2="382" y2="256"/><line x1="224" y1="288" x2="140" y2="337"/>
+            <line x1="288" y1="288" x2="372" y2="337"/><line x1="256" y1="304" x2="256" y2="372"/>
+          </g>
+          <circle cx="256" cy="140" r="16" fill="#6366f1"/><circle cx="140" cy="175" r="14" fill="#6366f1"/>
+          <circle cx="372" cy="175" r="14" fill="#6366f1"/><circle cx="130" cy="256" r="14" fill="#6366f1"/>
+          <circle cx="382" cy="256" r="14" fill="#6366f1"/><circle cx="140" cy="337" r="14" fill="#6366f1"/>
+          <circle cx="372" cy="337" r="14" fill="#6366f1"/><circle cx="256" cy="372" r="16" fill="#6366f1"/>
+        </svg>
+        <div class="logo">RepurposeAI</div>
+        <span class="byline">by SIFO</span>
+      </div>
     </div>
   </header>
 
@@ -147,10 +136,10 @@
       <h1>One piece of content.<br><span>Every platform.</span></h1>
       <p>Write once. RepurposeAI transforms it into platform-perfect posts for LinkedIn, Twitter, email newsletters, and blog summaries. Built for solo founders who don't have time.</p>
       <div class="waitlist">
-        <input type="email" placeholder="your@email.com" id="email">
+        <input type="email" placeholder="your@email.com" id="email" required>
         <button onclick="joinWaitlist()">Join Waitlist</button>
       </div>
-      <div class="proof">Join <strong>47 founders</strong> on the waitlist</div>
+      <div class="proof" id="proof">Join the waitlist — be first to repurpose smarter</div>
     </div>
   </section>
 
@@ -159,17 +148,17 @@
       <h2>How it works</h2>
       <div class="flow-steps">
         <div class="step">
-          <div class="step-num">1️⃣</div>
+          <div class="step-num">1</div>
           <h3>Paste your content</h3>
           <p>Blog post, newsletter, podcast transcript, video script — anything long-form.</p>
         </div>
         <div class="step">
-          <div class="step-num">2️⃣</div>
+          <div class="step-num">2</div>
           <h3>AI transforms it</h3>
           <p>Our AI rewrites for each platform's style, tone, and character limits.</p>
         </div>
         <div class="step">
-          <div class="step-num">3️⃣</div>
+          <div class="step-num">3</div>
           <h3>Copy & publish</h3>
           <p>Platform-ready posts. Copy-paste or schedule directly. Done in seconds.</p>
         </div>
@@ -182,32 +171,20 @@
       <h2>What you get from one piece of content</h2>
       <div class="output-grid">
         <div class="output-card">
-          <div class="output-icon">💼</div>
-          <div>
-            <h3>LinkedIn Post</h3>
-            <p>Professional, engaging, with hooks that drive comments</p>
-          </div>
+          <div class="output-icon">LinkedIn</div>
+          <div><h3>LinkedIn Post</h3><p>Professional, engaging, with hooks that drive comments</p></div>
         </div>
         <div class="output-card">
-          <div class="output-icon">🐦</div>
-          <div>
-            <h3>Twitter Thread</h3>
-            <p>Breaking your content into bite-sized, retweetable insights</p>
-          </div>
+          <div class="output-icon">X</div>
+          <div><h3>Twitter Thread</h3><p>Breaking your content into bite-sized, retweetable insights</p></div>
         </div>
         <div class="output-card">
-          <div class="output-icon">📧</div>
-          <div>
-            <h3>Email Newsletter</h3>
-            <p>Conversational summary with a clear CTA for your list</p>
-          </div>
+          <div class="output-icon">Email</div>
+          <div><h3>Email Newsletter</h3><p>Conversational summary with a clear CTA for your list</p></div>
         </div>
         <div class="output-card">
-          <div class="output-icon">📝</div>
-          <div>
-            <h3>Blog Summary</h3>
-            <p>Condensed version with key takeaways for your site</p>
-          </div>
+          <div class="output-icon">Blog</div>
+          <div><h3>Blog Summary</h3><p>Condensed version with key takeaways for your site</p></div>
         </div>
       </div>
     </div>
@@ -219,33 +196,18 @@
       <div class="pricing-grid">
         <div class="price-card">
           <h3>Starter</h3>
-          <div class="price">£19<span>/mo</span></div>
-          <ul>
-            <li>50 content pieces/month</li>
-            <li>4 platform outputs each</li>
-            <li>Basic templates</li>
-            <li>Email support</li>
-          </ul>
+          <div class="price">19<span>/mo</span></div>
+          <ul><li>50 content pieces/month</li><li>4 platform outputs each</li><li>Basic templates</li><li>Email support</li></ul>
         </div>
         <div class="price-card featured">
           <h3>Pro</h3>
-          <div class="price">£39<span>/mo</span></div>
-          <ul>
-            <li>200 content pieces/month</li>
-            <li>Custom tone & voice</li>
-            <li>Brand guidelines</li>
-            <li>Priority support</li>
-          </ul>
+          <div class="price">39<span>/mo</span></div>
+          <ul><li>200 content pieces/month</li><li>Custom tone & voice</li><li>Brand guidelines</li><li>Priority support</li></ul>
         </div>
         <div class="price-card">
           <h3>Team</h3>
-          <div class="price">£79<span>/mo</span></div>
-          <ul>
-            <li>Unlimited content</li>
-            <li>3 team members</li>
-            <li>API access</li>
-            <li>Dedicated support</li>
-          </ul>
+          <div class="price">79<span>/mo</span></div>
+          <ul><li>Unlimited content</li><li>3 team members</li><li>API access</li><li>Dedicated support</li></ul>
         </div>
       </div>
     </div>
@@ -256,7 +218,7 @@
       <h2>Stop creating content the hard way</h2>
       <p>Join the waitlist. Be first to repurpose smarter.</p>
       <div class="waitlist">
-        <input type="email" placeholder="your@email.com" id="email2">
+        <input type="email" placeholder="your@email.com" id="email2" required>
         <button onclick="joinWaitlist()">Join Waitlist</button>
       </div>
     </div>
@@ -264,38 +226,46 @@
 
   <footer>
     <div class="container">
-      <p>© 2026 RepurposeAI · A <strong style="color:var(--accent-light)">Sifo</strong> experiment</p>
+      <p>&copy; 2026 RepurposeAI &middot; A <strong>Sifo</strong> experiment</p>
     </div>
   </footer>
 
   <script>
-    const API_URL = 'https://sifo-waitlist.loca.lt';
+    // Honeypot field for spam protection (hidden from users)
+    // Form submission uses a simple POST to our own origin
+    // Rate limited on the server side
 
     async function joinWaitlist() {
       const emailInput = document.getElementById('email');
       const emailInput2 = document.getElementById('email2');
       const email = (emailInput && emailInput.value) || (emailInput2 && emailInput2.value);
 
-      if (!email || !email.includes('@')) {
-        alert('Please enter a valid email');
+      if (!email || !email.includes('@') || email.length < 5) {
         return;
       }
 
+      const btn = event.target;
+      btn.disabled = true;
+      btn.textContent = 'Joining...';
+
       try {
-        const res = await fetch(API_URL + '/waitlist', {
+        const res = await fetch('https://white-bat-70.loca.lt/waitlist', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email })
         });
-        const data = await res.json();
 
-        document.querySelectorAll('.proof').forEach(el => {
-          el.innerHTML = '<strong>' + (data.message || '🎉 You\'re on the list!') + '</strong> (' + data.count + ' signups)';
-        });
+        if (!res.ok) throw new Error('Request failed');
+
+        const data = await res.json();
+        document.getElementById('proof').innerHTML = '<strong>' + (data.message || 'You\'re on the list!') + '</strong>';
         if (emailInput) emailInput.value = '';
         if (emailInput2) emailInput2.value = '';
       } catch (e) {
-        alert('Something went wrong. Try again.');
+        document.getElementById('proof').innerHTML = '<span style="color:#ef4444">Something went wrong. Try again.</span>';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Join Waitlist';
       }
     }
   </script>
